@@ -14,6 +14,13 @@ module.exports = {
                     msg:'err'
                 })
             }else{
+                // data=={data:results,total:results1[0].cnt}
+                var arr = data.data //results
+                for(var i=0;i<arr.length;i++){
+                    arr[i].created = moment(arr[i].created).format('YYYY-MM-DD HH:mm:ss')
+                }
+                data.data = arr
+
                 res.json({
                     code:200,
                     data:data
@@ -44,7 +51,45 @@ module.exports = {
                 })
             }
         })
-    }
+    },
+
+    // 根据id获取指定的文章数据
+    getPostById(req,res){
+        var id = req.query.id
+        postsModule.getPostById(id,(err,data) =>{
+            if(err){
+                res.json({
+                    code:201,
+                    msg:'服务器异常'
+                })
+            }else{
+                // 这里转换是因为前台页面 的日期控件需要这种格式
+                data.created = moment(data.created).format('YYYY-MM-DDTHH:mm')
+                res.json({
+                    code:200,
+                    msg:'获取成功',
+                    data:data
+                })
+            }
+        })
+    },
+
+    // 根据id号来实现文章的编辑功能
+    editPostById(req,res){
+        postsModule.editPostById(req.body,(err) => {
+            if(err){
+                res.json({
+                    code:201,
+                    msg:'编辑失败'
+                })
+            }else{
+                res.json({
+                    code:200,
+                    msg:'编辑成功'
+                })
+            }
+        })
+    },
 }
 
 

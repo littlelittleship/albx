@@ -11,6 +11,7 @@
         <strong>提示：</strong> <span>用户名或密码错误！</span>
       </div>
       <form class="row">
+          <input type="hidden" name='id' id="id">
         <div class="col-md-9">
           <div class="form-group">
             <label for="title">标题</label>
@@ -62,4 +63,5 @@
   <%- include('./layout/admin_footer.ejs');%>
 
   <script src="/assets/vendors/ckeditor/ckeditor.js"></script>
+  <script src="/assets/js/common.js"></script>
   <script src="/assets/js/postAdd.js"></script>

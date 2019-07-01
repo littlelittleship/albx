@@ -8,6 +8,7 @@ $(function () {
         $.ajax({
             type: 'get',
             url: '/getAllPostList',
+            // data:$.extend({},query)
             data: {
                 pageNum,
                 pageSize,
@@ -20,7 +21,9 @@ $(function () {
                 var html = template('postListTemp', result.data)
                 $('tbody').html(html)
                 // 还要生成分页结构
-                setPagnator(Math.ceil(result.data.total / pageSize))
+                if(Math.ceil(result.data.total / pageSize) != 0){
+                    setPagnator(Math.ceil(result.data.total / pageSize))
+                }
             }
         })
     }
