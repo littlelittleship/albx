@@ -9596,6 +9596,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 })( window );
 
+<<<<<<< HEAD
 // nprogress
 $(document)
 	.ajaxStart(function () {
@@ -9604,3 +9605,5 @@ $(document)
 	.ajaxStop(function () {
 		NProgress.done()
 	})
+=======
+>>>>>>> b71cca75fcd00d146ad53e17f335d5044f220903

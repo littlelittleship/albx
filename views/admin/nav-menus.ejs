@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <%- include('./layout/header.ejs')%>
+=======
+<%- include('./layout/admin_header.ejs');%>
+
+  <div class="main">
+    <%- include('./layout/admin_navbar.ejs');%>
+>>>>>>> b71cca75fcd00d146ad53e17f335d5044f220903
     <div class="container-fluid">
       <div class="page-title">
         <h1>导航菜单</h1>
@@ -24,7 +31,11 @@
               <input id="href" class="form-control" name="href" type="text" placeholder="链接">
             </div>
             <div class="form-group">
+<<<<<<< HEAD
               <button class="btn btn-primary" type="submit">添加</button>
+=======
+              <input class="btn btn-primary btnadd" type="button" value="添加">
+>>>>>>> b71cca75fcd00d146ad53e17f335d5044f220903
             </div>
           </form>
         </div>
@@ -78,4 +89,24 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <%- include('./layout/left.ejs')%>
+=======
+  <%- include('./layout/admin_aside.ejs');%>
+
+  <%- include('./layout/admin_footer.ejs');%>
+<script src="/assets/vendors/jquery/jquery.js"></script>
+  <script>
+    $('.btnadd').on('click',function(){
+      $.ajax({
+        type:'post',
+        url:'/addMenu',
+        data:$('form').serialize(),
+        dataType:'json',
+        success:function(result){
+          console.log(result)
+        }
+      })
+    })
+  </script>
+>>>>>>> b71cca75fcd00d146ad53e17f335d5044f220903
